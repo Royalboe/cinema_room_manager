@@ -3,7 +3,7 @@ package cinema
 const val SEAT = 'S'
 const val NUMB = 60
 const val PRICE = 10
-const val REDUCEDPRICE = 8
+const val REDUCED_PRICE = 8
 const val HALF = 2
 fun main() {
     // Ask user for the number of rows in the cinema
@@ -71,8 +71,8 @@ class Cinema(private val rows: Int, private val seats: Int) {
 
     /**
      * assignSeat - marks a seat as occupied, and it takes two arguments
-     * yCor - This is the seat row number
-     * xCor - This is the seat number
+     * @param yCor - This is the seat row number
+     * @param xCor - This is the seat number
      * Return: Void
      */
     fun assignSeat(yCor: Int, xCor: Int) {
@@ -84,7 +84,7 @@ class Cinema(private val rows: Int, private val seats: Int) {
     /**
      * ticketPrice - It sets the ticket price based on the number of seats in the cinema
      * and on the row position if the seat.
-     * Return: ticketPrice
+     * @return: ticketPrice
      */
     fun ticketPrice(): Int {
         ticketPrice = if (totalSeats <= NUMB) {
@@ -93,7 +93,7 @@ class Cinema(private val rows: Int, private val seats: Int) {
             val frontHalf = (rows / HALF)
             //val backHalf = rows - frontHalf
             if ((rowNumber + 1) in 0..frontHalf) PRICE
-            else REDUCEDPRICE
+            else REDUCED_PRICE
         }
         return ticketPrice
     }
