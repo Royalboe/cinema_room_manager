@@ -16,22 +16,35 @@ fun main() {
     val columns = readLine()!!.toInt()
     // Initialize a Cinema class with user's Input
     val cinema = Cinema(rows, columns)
+    var n: Int
+    do {
+        println("1. Show the seats")
+        println("2. Buy a ticket")
+        println("0. Exit")
+        n = readLine()!!.toInt()
+        when (n){
+            1 -> cinema.printSeatingScheme()
+            2 -> buyTicket(cinema)
+            0 -> break
+        }
+    } while(n != 0)
+}
 
-    // print out to the console the cinema scheme
-    cinema.printSeatingScheme()
-
+/**
+ * buyTicket - Takes an arg which is of type Cinema,
+ * takes 2 inputs from the user that are row and seat numbers
+ * it then assigns a seat based on the input and prints out ticket price
+ * @param cinema - a single arg
+ * @return - Nothing / Unit
+ */
+private fun buyTicket(cinema: Cinema) {
     println("Enter a row number:")
-    val rowNumber = readln().toInt()
+    val rowNumber = readLine()!!.toInt()
 
     println("Enter a seat number in that row:")
-    val seatNumber = readln().toInt()
+    val seatNumber = readLine()!!.toInt()
     cinema.assignSeat(rowNumber, seatNumber)
-
-    // Print out the ticket price to the console
     println("Ticket price: \$${cinema.ticketPrice()}")
-
-    // print out the new cinema scheme
-    cinema.printSeatingScheme()
 }
 
 /**
@@ -52,7 +65,7 @@ class Cinema(private val rows: Int, private val seats: Int) {
     /**
      * printSeatingScheme - A method that prints out the seats in the cinema
      * It prints the scheme in a specific format
-     * Return: Void
+     * @return - Nothing / unit
      */
     fun printSeatingScheme() {
         println("Cinema:")
@@ -73,7 +86,7 @@ class Cinema(private val rows: Int, private val seats: Int) {
      * assignSeat - marks a seat as occupied, and it takes two arguments
      * @param yCor - This is the seat row number
      * @param xCor - This is the seat number
-     * Return: Void
+     * @return: Nothing / Unit
      */
     fun assignSeat(yCor: Int, xCor: Int) {
         rowNumber = yCor - 1
