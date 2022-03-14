@@ -19,7 +19,7 @@ stages:
   is_completed: true
 - id: 739
   step: 11368
-  is_completed: false
+  is_completed: true
 topics:
   0:
   - title: Introduction to Kotlin
